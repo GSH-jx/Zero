@@ -1,0 +1,3430 @@
+首页
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 首页</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653',
+                        light: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .transition-transform {
+                transition-property: transform;
+                transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+                transition-duration: 300ms;
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-primary border-b-2 border-primary py-1">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary transition py-1">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary transition py-1">美食推荐</a>
+                    <a href="攻略.html" class="font-medium text-gray-600 hover:text-primary transition py-1">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition py-1">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition py-1">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition py-1">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition py-1">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-4 pb-2" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="font-medium text-primary py-1">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary transition py-1">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary transition py-1">美食推荐</a>
+                    <a href="攻略.html" class="font-medium text-gray-600 hover:text-primary transition py-1">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition py-1">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition py-1">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition py-1">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 英雄区域 -->
+    <header class="pt-16">
+        <div class="relative h-[80vh] overflow-hidden">
+            <img src="img/1.png" alt="信阳美景" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-50"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div class="max-w-3xl">
+                    <h1 class="text-[clamp(2.5rem,5vw,4rem)] font-bold text-white mb-6 text-shadow animate-fade-in">
+                        信阳 - 山水之间的诗意小城
+                    </h1>
+                    <p class="text-[clamp(1rem,2vw,1.25rem)] text-white mb-8 text-shadow">
+                        探索这座位于河南南部的魅力城市，感受其独特的自然风光与人文底蕴
+                    </p>
+                    <a href="attractions.html" class="inline-block bg-primary hover:bg-primary/90 text-white font-medium py-3 px-8 rounded-full transition-all transform hover:scale-105 shadow-lg">
+                        开始探索 <i class="fa fa-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="absolute bottom-6 left-0 right-0 flex justify-center">
+                <a href="#about" class="text-white animate-bounce">
+                    <i class="fa fa-chevron-down text-2xl"></i>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 关于信阳 -->
+    <section id="about" class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">信阳简介</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="img/2.png" alt="信阳风光" class="rounded-lg shadow-xl w-full h-auto transform hover:scale-[1.02] transition-all duration-300">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-dark mb-4">豫南明珠，江南北国</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        信阳位于河南省南部，东邻安徽，南接湖北，素有"豫南明珠"之称。这座城市兼具北方的豪迈与南方的秀美，
+                        是中国南北地理、气候、文化的过渡带，因此有"江南北国、北国江南"的美誉。
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        信阳山清水秀，气候宜人，森林覆盖率高，是中国优秀旅游城市、国家园林城市。这里不仅有鸡公山、南湾湖等
+                        著名自然景观，还有丰富的历史文化遗产和独特的民俗风情。
+                    </p>
+                    <div class="grid grid-cols-2 gap-4 mb-6">
+                        <div class="flex items-center">
+                            <i class="fa fa-tree text-primary text-xl mr-3"></i>
+                            <span>生态宜居之城</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-leaf text-primary text-xl mr-3"></i>
+                            <span>中国毛尖之都</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-history text-primary text-xl mr-3"></i>
+                            <span>历史文化名城</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-cutlery text-primary text-xl mr-3"></i>
+                            <span>美食天堂</span>
+                        </div>
+                    </div>
+                    <a href="culture.html" class="inline-flex items-center text-primary font-medium hover:underline">
+                        了解更多信阳文化 <i class="fa fa-long-arrow-right ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 热门景点 -->
+    <section class="py-20 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">热门景点</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    信阳拥有丰富的自然和人文景观，从壮丽的山川到宁静的湖泊，从历史古迹到现代休闲场所，总有一处适合你
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 景点卡片 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="img/3.png" alt="鸡公山" class="w-full h-full object-cover transform hover:scale-110 transition-all duration-500">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            必游
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">鸡公山</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            中国四大避暑胜地之一，以"山明水秀、泉清林翠、气候凉爽、风景幽奇、别有天地"而闻名
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 信阳市浉河区</span>
+                            <a href="attractions.html" class="text-primary font-medium hover:underline text-sm">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点卡片 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="img/4.png" alt="南湾湖" class="w-full h-full object-cover transform hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">南湾湖</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            河南省最大的自然湖泊，湖中有大小岛屿数十座，被誉为"豫南明珠"、"中原第一湖"
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 信阳市浉河区</span>
+                            <a href="attractions.html" class="text-primary font-medium hover:underline text-sm">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点卡片 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden transform hover:-translate-y-2 transition-all duration-300">
+                    <div class="relative h-56 overflow-hidden">
+                        <img src="img/5.png" alt="灵山寺" class="w-full h-full object-cover transform hover:scale-110 transition-all duration-500">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">灵山寺</h3>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            始建于北魏年间，是豫南著名的佛教胜地，有"中原四大古寺"之称
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 信阳市罗山县</span>
+                            <a href="attractions.html" class="text-primary font-medium hover:underline text-sm">查看详情</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="attractions.html" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-full transition-all">
+                    查看全部景点
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色美食 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">特色美食</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    信阳美食融合了豫菜和楚菜的特点，口味独特，让人回味无穷
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-4 gap-6">
+                <!-- 美食 1 -->
+                <div class="group">
+                    <div class="relative rounded-lg overflow-hidden mb-4 h-64">
+                        <img src="img/6.png" alt="信阳炖菜" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                            <div class="p-4 text-white">
+                                <a href="food.html" class="text-sm font-medium hover:underline">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark">信阳炖菜</h3>
+                    <p class="text-gray-600 text-sm">鲜香浓郁，营养丰富</p>
+                </div>
+                
+                <!-- 美食 2 -->
+                <div class="group">
+                    <div class="relative rounded-lg overflow-hidden mb-4 h-64">
+                        <img src="img/7.png" alt="固始鹅块" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                            <div class="p-4 text-white">
+                                <a href="food.html" class="text-sm font-medium hover:underline">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark">固始鹅块</h3>
+                    <p class="text-gray-600 text-sm">肉质鲜嫩，风味独特</p>
+                </div>
+                
+                <!-- 美食 3 -->
+                <div class="group">
+                    <div class="relative rounded-lg overflow-hidden mb-4 h-64">
+                        <img src="img/8.png" alt="南湾鱼" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                            <div class="p-4 text-white">
+                                <a href="food.html" class="text-sm font-medium hover:underline">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark">南湾鱼</h3>
+                    <p class="text-gray-600 text-sm">肉质细腻，味道鲜美</p>
+                </div>
+                
+                <!-- 美食 4 -->
+                <div class="group">
+                    <div class="relative rounded-lg overflow-hidden mb-4 h-64">
+                        <img src="img/1.png" alt="信阳毛尖" class="w-full h-full object-cover group-hover:scale-110 transition-all duration-500">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/70 to-transparent opacity-0 group-hover:opacity-100 transition-opacity flex items-end">
+                            <div class="p-4 text-white">
+                                <a href="food.html" class="text-sm font-medium hover:underline">查看详情</a>
+                            </div>
+                        </div>
+                    </div>
+                    <h3 class="text-lg font-semibold text-dark">信阳毛尖</h3>
+                    <p class="text-gray-600 text-sm">中国十大名茶之一</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <a href="food.html" class="inline-block border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-2 px-6 rounded-full transition-all">
+                    探索更多美食
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 旅游攻略 -->
+    <section class="py-20 bg-primary bg-opacity-5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">旅游攻略</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    精心准备的旅游攻略，助你轻松玩转信阳
+                </p>
+            </div>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="grid md:grid-cols-3">
+                    <div class="p-8 border-b md:border-b-0 md:border-r border-gray-100">
+                        <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-calendar text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-3">最佳旅游时间</h3>
+                        <p class="text-gray-600 mb-4">
+                            信阳四季分明，春秋两季气候宜人，是最佳旅游时节。春季万物复苏，茶香四溢；秋季天高气爽，景色宜人。
+                        </p>
+                        <a href="攻略.html" class="text-primary font-medium hover:underline inline-flex items-center">
+                            详细了解 <i class="fa fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="p-8 border-b md:border-b-0 md:border-r border-gray-100">
+                        <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-map text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-3">推荐路线</h3>
+                        <p class="text-gray-600 mb-4">
+                            我们为您精心设计了多条旅游路线，涵盖自然风光、历史文化和美食体验，满足不同游客的需求。
+                        </p>
+                        <a href="攻略.html" class="text-primary font-medium hover:underline inline-flex items-center">
+                            查看路线 <i class="fa fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="p-8">
+                        <div class="w-14 h-14 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6">
+                            <i class="fa fa-lightbulb-o text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="text-xl font-semibold text-dark mb-3">旅行小贴士</h3>
+                        <p class="text-gray-600 mb-4">
+                            了解当地天气、交通、住宿等实用信息，以及一些本地人才知道的游玩技巧，让您的旅程更加顺畅。
+                        </p>
+                        <a href="攻略.html" class="text-primary font-medium hover:underline inline-flex items-center">
+                            获取贴士 <i class="fa fa-angle-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 游客评价 -->
+    <section class="py-20 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-dark mb-4">游客评价</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- 评价 1 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <img src="img/2.png" alt="游客头像" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-dark">张先生</h4>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "信阳是一个令人惊喜的城市，鸡公山的自然风光美不胜收，南湾湖的鱼也非常美味。当地人热情好客，让我感觉像回家一样。"
+                    </p>
+                </div>
+                
+                <!-- 评价 2 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <img src="img/3.png" alt="游客头像" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-dark">李女士</h4>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "作为一个茶文化爱好者，信阳毛尖给我留下了深刻印象。参观了茶园，了解了茶叶制作过程，还品尝了正宗的信阳炖菜，非常满足。"
+                    </p>
+                </div>
+                
+                <!-- 评价 3 -->
+                <div class="bg-gray-50 p-8 rounded-lg shadow-sm">
+                    <div class="flex items-center mb-6">
+                        <img src="img/4.png" alt="游客头像" class="w-14 h-14 rounded-full object-cover mr-4">
+                        <div>
+                            <h4 class="font-semibold text-dark">王先生</h4>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">
+                        "带着家人一起去的信阳，孩子们非常喜欢南湾湖的游船和猴岛。灵山寺很宁静，适合静心。整体来说，是一次非常愉快的家庭旅行。"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 订阅区域 -->
+    <section class="py-16 bg-primary">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto text-center">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-white mb-4">获取信阳旅游最新资讯</h2>
+                <p class="text-white text-opacity-80 mb-8">
+                    订阅我们的邮件，获取最新的旅游信息、优惠活动和独家攻略
+                </p>
+                <form class="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto">
+                    <input type="email" placeholder="请输入您的邮箱" class="flex-1 px-4 py-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-white">
+                    <button type="submit" class="bg-dark hover:bg-dark/90 text-white font-medium px-6 py-3 rounded-lg transition-all">
+                        立即订阅
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fa fa-map-marker text-primary text-2xl"></i>
+                        <span class="text-xl font-bold">信阳旅游</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        探索信阳的自然美景、历史文化和特色美食，感受这座"江南北国"的独特魅力。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition">首页</a></li>
+                        <li><a href="attractions.html" class="text-gray-400 hover:text-primary transition">景点介绍</a></li>
+                        <li><a href="food.html" class="text-gray-400 hover:text-primary transition">美食推荐</a></li>
+                        <li><a href="攻略.html" class="text-gray-400 hover:text-primary transition">旅游攻略</a></li>
+                        <li><a href="culture.html" class="text-gray-400 hover:text-primary transition">文化历史</a></li>
+                        <li><a href="customs.html" class="text-gray-400 hover:text-primary transition">民俗风情</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">旅游资源</h3>
+                    <ul class="space-y-3">
+                        <li><a href="accommodation.html" class="text-gray-400 hover:text-primary transition">住宿推荐</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">交通指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">旅游地图</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">旅游法规</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">河南省信阳市浉河区</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-400">0376-1234567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">info@xinyang-tourism.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                        &copy; 2023 信阳旅游网. 保留所有权利.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-primary text-sm transition">隐私政策</a>
+                        <a href="#" class="text-gray-500 hover:text-primary text-sm transition">使用条款</a>
+                        <a href="#" class="text-gray-500 hover:text-primary text-sm transition">网站地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3', 'bg-white');
+            } else {
+                navbar.classList.add('py-3', 'bg-white');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+        
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body>
+</html>
+
+
+旅游推荐
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 景点介绍</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653',
+                        light: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary transition py-1">首页</a>
+                    <a href="attractions.html" class="font-medium text-primary border-b-2 border-primary py-1">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary transition py-1">美食推荐</a>
+                    <a href="攻略.html" class="font-medium text-gray-600 hover:text-primary transition py-1">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition py-1">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition py-1">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition py-1">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition py-1">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-4 pb-2" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary transition py-1">首页</a>
+                    <a href="attractions.html" class="font-medium text-primary py-1">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary transition py-1">美食推荐</a>
+                    <a href="攻略.html" class="font-medium text-gray-600 hover:text-primary transition py-1">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition py-1">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition py-1">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition py-1">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[50vh] overflow-hidden">
+            <img src="img/3.png" alt="信阳景点" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-4 text-shadow">
+                        信阳景点介绍
+                    </h1>
+                    <p class="text-[clamp(1rem,2vw,1.25rem)] text-white max-w-2xl mx-auto text-shadow">
+                        探索信阳的自然与人文景观，感受这座城市的独特魅力
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 景点分类 -->
+    <section class="py-12 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="flex overflow-x-auto pb-4 scrollbar-hide gap-4 justify-center">
+                <button class="bg-primary text-white px-6 py-2 rounded-full whitespace-nowrap">全部景点</button>
+                <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full whitespace-nowrap transition-colors">自然风光</button>
+                <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full whitespace-nowrap transition-colors">历史古迹</button>
+                <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full whitespace-nowrap transition-colors">文化体验</button>
+                <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full whitespace-nowrap transition-colors">休闲度假</button>
+                <button class="bg-gray-100 hover:bg-gray-200 px-6 py-2 rounded-full whitespace-nowrap transition-colors">红色旅游</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 主要景点 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-12 text-center">主要景点</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 景点 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-60">
+                        <img src="img/3.png" alt="鸡公山" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            国家AAAA级景区
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-semibold text-dark">鸡公山</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <span class="text-gray-500 text-sm ml-1">(4.5)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            鸡公山是中国四大避暑胜地之一，位于信阳市南38公里处。因山势宛如一只昂首展翅、引颈高歌的雄鸡而得名。这里森林茂密，生物资源丰富，气候凉爽宜人，夏季平均气温23℃，是理想的避暑胜地。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">自然风光</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">避暑胜地</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">徒步旅行</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fa fa-map-marker mr-1"></i>
+                                <span>信阳市浉河区</span>
+                            </div>
+                            <button class="text-primary font-medium hover:text-primary/80 transition">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-60">
+                        <img src="img/4.png" alt="南湾湖" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            国家AAAA级景区
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-semibold text-dark">南湾湖</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span class="text-gray-500 text-sm ml-1">(4.0)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            南湾湖又称南湖，是河南省著名的省级风景区。景区由南湾湖和南湾国家森林公园组成，湖内水天相接，烟波浩淼；岛上绿树成林，苍翠欲滴，鸟岛、猴岛、消夏岛等61座岛屿错落分布。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">湖泊景观</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">游船</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">亲子游</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fa fa-map-marker mr-1"></i>
+                                <span>信阳市浉河区</span>
+                            </div>
+                            <button class="text-primary font-medium hover:text-primary/80 transition">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-60">
+                        <img src="img/5.png" alt="灵山寺" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            国家AAAA级景区
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-semibold text-dark">灵山寺</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <span class="text-gray-500 text-sm ml-1">(4.6)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            灵山寺始建于北魏孝文帝延兴四年（公元474年），距今已有1500余年历史，为豫南四大古刹之一。灵山寺座落在灵山群山之中，寺内外古木参天，香火鼎盛，是信阳市重要的宗教活动场所。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">历史古迹</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">宗教文化</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">祈福</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fa fa-map-marker mr-1"></i>
+                                <span>信阳市罗山县</span>
+                            </div>
+                            <button class="text-primary font-medium hover:text-primary/80 transition">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-60">
+                        <img src="img/6.png" alt="波尔登森林公园" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            国家AAA级景区
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-semibold text-dark">波尔登森林公园</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span class="text-gray-500 text-sm ml-1">(4.2)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            波尔登森林公园位于鸡公山国家级自然保护区内，因英国林学家波尔登在此工作而得名。公园内森林覆盖率达98%以上，动植物种类繁多，空气清新，是天然的氧吧和休闲度假胜地。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">森林公园</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">生态旅游</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">徒步</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fa fa-map-marker mr-1"></i>
+                                <span>信阳市浉河区</span>
+                            </div>
+                            <button class="text-primary font-medium hover:text-primary/80 transition">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-60">
+                        <img src="img/7.png" alt="鄂豫皖苏区首府革命博物馆" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            国家AAAA级景区
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-semibold text-dark">鄂豫皖苏区首府革命博物馆</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span class="text-gray-500 text-sm ml-1">(4.3)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            鄂豫皖苏区首府革命博物馆是全国重点文物保护单位，全国爱国主义教育示范基地。博物馆展现了鄂豫皖苏区革命斗争的历史，收藏了大量革命文物和历史照片，是了解中国革命历史的重要窗口。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">红色旅游</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">历史教育</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">博物馆</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fa fa-map-marker mr-1"></i>
+                                <span>信阳市新县</span>
+                            </div>
+                            <button class="text-primary font-medium hover:text-primary/80 transition">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 景点 6 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-60">
+                        <img src="img/8.png" alt="汤泉池" class="w-full h-full object-cover">
+                        <div class="absolute top-4 left-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            休闲度假区
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <div class="flex justify-between items-start mb-3">
+                            <h3 class="text-xl font-semibold text-dark">汤泉池</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                                <i class="fa fa-star-o"></i>
+                                <span class="text-gray-500 text-sm ml-1">(3.7)</span>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            汤泉池位于商城县西南15公里处，是一处集温泉、湖光山色于一体的休闲度假区。这里的温泉水温高达58℃，富含多种矿物质，具有很高的医疗价值。景区内湖光山色，景色宜人，是疗养度假的好去处。
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-5">
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">温泉</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">度假</span>
+                            <span class="bg-gray-100 text-gray-600 text-xs px-3 py-1 rounded-full">疗养</span>
+                        </div>
+                        <div class="flex justify-between items-center">
+                            <div class="flex items-center text-gray-500 text-sm">
+                                <i class="fa fa-map-marker mr-1"></i>
+                                <span>信阳市商城县</span>
+                            </div>
+                            <button class="text-primary font-medium hover:text-primary/80 transition">
+                                查看详情 <i class="fa fa-angle-right ml-1"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 加载更多按钮 -->
+            <div class="text-center mt-12">
+                <button class="bg-white border-2 border-primary text-primary hover:bg-primary hover:text-white font-medium py-3 px-8 rounded-full transition-all shadow-sm">
+                    加载更多景点 <i class="fa fa-refresh ml-2"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- 景点推荐路线 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-4">推荐旅游路线</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    根据不同的游玩天数和兴趣偏好，我们为您推荐以下旅游路线
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 路线 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-primary bg-opacity-10 p-5">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fa fa-calendar-check-o text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-dark">一日精华游</h3>
+                                <p class="text-gray-600 text-sm">适合时间紧张的游客</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3 mb-5">
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
+                                <div>
+                                    <p class="font-medium">上午：鸡公山景区</p>
+                                    <p class="text-gray-600 text-sm">游览报晓峰、中正防空洞、美龄舞厅等景点</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
+                                <div>
+                                    <p class="font-medium">中午：鸡公山农家菜</p>
+                                    <p class="text-gray-600 text-sm">品尝当地特色美食</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
+                                <div>
+                                    <p class="font-medium">下午：南湾湖景区</p>
+                                    <p class="text-gray-600 text-sm">乘船游览湖光山色，登猴岛、鸟岛</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="攻略.html" class="text-primary font-medium hover:underline inline-flex items-center text-sm">
+                            查看详细行程 <i class="fa fa-long-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 路线 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-primary bg-opacity-10 p-5">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fa fa-calendar-check-o text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-dark">三日深度游</h3>
+                                <p class="text-gray-600 text-sm">全面体验信阳风情</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3 mb-5">
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">D1</span>
+                                <div>
+                                    <p class="font-medium">鸡公山景区 + 波尔登森林公园</p>
+                                    <p class="text-gray-600 text-sm">感受自然生态之美</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">D2</span>
+                                <div>
+                                    <p class="font-medium">南湾湖景区 + 茶博物馆</p>
+                                    <p class="text-gray-600 text-sm">体验湖光山色与茶文化</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">D3</span>
+                                <div>
+                                    <p class="font-medium">灵山寺 + 周边乡村游</p>
+                                    <p class="text-gray-600 text-sm">感受宗教文化与乡村风情</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="攻略.html" class="text-primary font-medium hover:underline inline-flex items-center text-sm">
+                            查看详细行程 <i class="fa fa-long-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <!-- 路线 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="bg-primary bg-opacity-10 p-5">
+                        <div class="flex items-center">
+                            <div class="w-12 h-12 bg-primary rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fa fa-calendar-check-o text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold text-dark">红色文化游</h3>
+                                <p class="text-gray-600 text-sm">重温革命历史</p>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <ul class="space-y-3 mb-5">
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">1</span>
+                                <div>
+                                    <p class="font-medium">鄂豫皖苏区首府革命博物馆</p>
+                                    <p class="text-gray-600 text-sm">了解苏区革命斗争历史</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">2</span>
+                                <div>
+                                    <p class="font-medium">许世友将军故里</p>
+                                    <p class="text-gray-600 text-sm">缅怀革命先烈</p>
+                                </div>
+                            </li>
+                            <li class="flex">
+                                <span class="bg-primary text-white text-xs w-6 h-6 rounded-full flex items-center justify-center mr-3 mt-0.5 flex-shrink-0">3</span>
+                                <div>
+                                    <p class="font-medium">红二十五军长征出发地</p>
+                                    <p class="text-gray-600 text-sm">感受长征精神</p>
+                                </div>
+                            </li>
+                        </ul>
+                        <a href="攻略.html" class="text-primary font-medium hover:underline inline-flex items-center text-sm">
+                            查看详细行程 <i class="fa fa-long-arrow-right ml-1"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 旅游小贴士 -->
+    <section class="py-16 bg-primary bg-opacity-5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-4">景点旅游小贴士</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <i class="fa fa-ticket text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-dark mb-2">门票信息</h3>
+                            <p class="text-gray-600 text-sm">
+                                鸡公山门票80元/人，南湾湖门票60元/人（不含船票），灵山寺门票65元/人。部分景区对学生、老年人、军人等有优惠政策，请携带相关证件。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <i class="fa fa-bus text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-dark mb-2">交通指南</h3>
+                            <p class="text-gray-600 text-sm">
+                                信阳市区有旅游专线车直达各主要景区。鸡公山可乘公交或出租车前往；南湾湖距市区较近，可乘坐公交或打车；灵山寺需在信阳市汽车站乘坐前往罗山县的班车。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <i class="fa fa-clock-o text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-dark mb-2">开放时间</h3>
+                            <p class="text-gray-600 text-sm">
+                                大部分景区开放时间为8:00-17:30，冬季可能会适当缩短开放时间。建议提前查询具体景区的开放时间，合理安排行程。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="flex items-start">
+                        <div class="w-10 h-10 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mr-4 mt-1 flex-shrink-0">
+                            <i class="fa fa-lightbulb-o text-primary"></i>
+                        </div>
+                        <div>
+                            <h3 class="text-lg font-semibold text-dark mb-2">注意事项</h3>
+                            <p class="text-gray-600 text-sm">
+                                山区游览请注意安全，穿舒适的鞋子；夏季注意防晒防暑；南湾湖乘船请遵守安全规定；尊重当地宗教习俗；爱护环境，不随意丢弃垃圾。
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white pt-16 pb-8">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8 mb-12">
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <i class="fa fa-map-marker text-primary text-2xl"></i>
+                        <span class="text-xl font-bold">信阳旅游</span>
+                    </div>
+                    <p class="text-gray-400 mb-6">
+                        探索信阳的自然美景、历史文化和特色美食，感受这座"江南北国"的独特魅力。
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-weixin"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-weibo"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-gray-800 flex items-center justify-center hover:bg-primary transition-colors">
+                            <i class="fa fa-youtube-play"></i>
+                        </a>
+                    </div>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">快速链接</h3>
+                    <ul class="space-y-3">
+                        <li><a href="index.html" class="text-gray-400 hover:text-primary transition">首页</a></li>
+                        <li><a href="attractions.html" class="text-gray-400 hover:text-primary transition">景点介绍</a></li>
+                        <li><a href="food.html" class="text-gray-400 hover:text-primary transition">美食推荐</a></li>
+                        <li><a href="攻略.html" class="text-gray-400 hover:text-primary transition">旅游攻略</a></li>
+                        <li><a href="culture.html" class="text-gray-400 hover:text-primary transition">文化历史</a></li>
+                        <li><a href="customs.html" class="text-gray-400 hover:text-primary transition">民俗风情</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">旅游资源</h3>
+                    <ul class="space-y-3">
+                        <li><a href="accommodation.html" class="text-gray-400 hover:text-primary transition">住宿推荐</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">交通指南</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">旅游地图</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">旅游法规</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-primary transition">常见问题</a></li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 class="text-lg font-semibold mb-6">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fa fa-map-marker text-primary mt-1 mr-3"></i>
+                            <span class="text-gray-400">河南省信阳市浉河区</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-phone text-primary mr-3"></i>
+                            <span class="text-gray-400">0376-1234567</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fa fa-envelope text-primary mr-3"></i>
+                            <span class="text-gray-400">info@xinyang-tourism.com</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="border-t border-gray-800 pt-8">
+                <div class="flex flex-col md:flex-row justify-between items-center">
+                    <p class="text-gray-500 text-sm mb-4 md:mb-0">
+                        &copy; 2023 信阳旅游网. 保留所有权利.
+                    </p>
+                    <div class="flex space-x-6">
+                        <a href="#" class="text-gray-500 hover:text-primary text-sm transition">隐私政策</a>
+                        <a href="#" class="text-gray-500 hover:text-primary text-sm transition">使用条款</a>
+                        <a href="#" class="text-gray-500 hover:text-primary text-sm transition">网站地图</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3', 'bg-white');
+            } else {
+                navbar.classList.add('py-3', 'bg-white');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+美食推荐
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 美食推荐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653',
+                        light: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .food-card {
+                transition: all 0.3s ease;
+            }
+            .food-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary transition py-1">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary transition py-1">景点介绍</a>
+                    <a href="food.html" class="font-medium text-primary border-b-2 border-primary py-1">美食推荐</a>
+                    <a href="攻略.html" class="font-medium text-gray-600 hover:text-primary transition py-1">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition py-1">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition py-1">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition py-1">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition py-1">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-4 pb-2" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary transition py-1">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary transition py-1">景点介绍</a>
+                    <a href="food.html" class="font-medium text-primary py-1">美食推荐</a>
+                    <a href="攻略.html" class="font-medium text-gray-600 hover:text-primary transition py-1">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition py-1">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition py-1">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition py-1">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[50vh] overflow-hidden">
+            <img src="img/6.png" alt="信阳美食" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-4 text-shadow">
+                        信阳美食推荐
+                    </h1>
+                    <p class="text-[clamp(1rem,2vw,1.25rem)] text-white max-w-2xl mx-auto text-shadow">
+                        品味信阳独特风味，感受"豫风楚韵"的饮食文化
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 美食介绍 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-4">信阳美食文化</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    信阳地处河南南部，与湖北接壤，饮食文化兼具豫菜和楚菜的特点，口味偏咸鲜，擅长炖、炒、焖等技法，注重食材本味
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="img/7.png" alt="信阳美食" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-dark mb-4">豫南风味，楚菜遗风</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        信阳菜是河南菜的重要分支，同时又深受楚菜影响，形成了自己独特的风格。与河南大部分地区不同，信阳人以米饭为主食，菜肴也多偏向南方口味。
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        信阳菜的特点是：选料严谨，注重鲜活；刀工精细，造型美观；讲究火候，擅长炖焖；味道醇厚，咸鲜微辣；汤汁浓郁，营养丰富。
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>食材新鲜天然</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>注重原汁原味</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>擅长炖菜技法</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>风味咸鲜微辣</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色美食 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-12 text-center">特色美食</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 美食 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/6.png" alt="信阳炖菜" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-bold px-3 py-1 rounded-full">
+                            必尝
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">信阳炖菜</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            信阳炖菜是信阳菜的代表，有着"无炖不成席"的说法。采用当地新鲜食材，以砂锅慢炖而成，保持了食材的原汁原味，汤汁浓郁鲜美，营养丰富。常见的有清炖南湾鱼、炖柴鸡、炖腊肉等。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 信阳市各区均有</span>
+                            <span class="text-primary font-medium">人均 ¥50-80</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/7.png" alt="固始鹅块" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-bold px-3 py-1 rounded-full">
+                            必尝
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">固始鹅块</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            固始鹅块是信阳固始县的传统名吃，选用当地散养的大白鹅，经特殊工艺制作而成。鹅肉鲜嫩，汤汁浓郁，配以秘制蘸料，风味独特。食用时一般将鹅肉切成块，与汤汁、辣椒等一起炖煮，香气四溢。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 固始县及信阳市区</span>
+                            <span class="text-primary font-medium">人均 ¥40-60</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/8.png" alt="南湾鱼" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">南湾鱼</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            南湾鱼产自信阳南湾湖，因水质优良，鱼肉细嫩鲜美，无土腥味，深受游客喜爱。南湾鱼的做法多样，可清炖、红烧、香煎等，其中以清炖南湾鱼头最具特色，汤汁乳白，味道鲜美，营养丰富。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 南湾湖周边及市区</span>
+                            <span class="text-primary font-medium">人均 ¥60-100</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/1.png" alt="信阳毛尖" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">信阳毛尖</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            信阳毛尖是中国十大名茶之一，属于绿茶类。因条索细圆，紧直有锋苗，色泽翠绿，白毫显露，冲泡后香气清高，滋味鲜爽，被誉为"绿茶之王"。信阳毛尖不仅是上好的饮品，也可用于烹饪，如毛尖炒鸡蛋等。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 信阳市各区均有销售</span>
+                            <span class="text-primary font-medium">¥100-1000/斤</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/2.png" alt="罗山大肠汤" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">罗山大肠汤</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            罗山大肠汤是信阳罗山县的特色小吃，以猪大肠为主料，配以猪血、豆腐等食材，用特制调料炖煮而成。汤色红亮，味道浓郁，肥而不腻，辣而不燥，是当地人和游客都喜爱的美食。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 罗山县及信阳市区</span>
+                            <span class="text-primary font-medium">人均 ¥20-30</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 6 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/3.png" alt="光山麻鸭蛋" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">光山麻鸭蛋</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            光山麻鸭蛋是信阳光山县的特产，以当地散养的麻鸭所产的鸭蛋为原料，采用传统工艺腌制而成。蛋青呈碧绿色，蛋黄橙黄，质地细嫩，味道鲜美，营养丰富，是当地著名的风味食品和馈赠佳品。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 光山县及信阳市区</span>
+                            <span class="text-primary font-medium">¥1.5-3/个</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推荐餐馆 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-4">推荐餐馆</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    这些餐馆以正宗的信阳菜闻名，是品尝当地美食的好去处
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 餐馆 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative h-48">
+                        <img src="img/4.png" alt="信阳人家" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">信阳人家</h3>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            信阳市知名的信阳菜餐馆，菜品丰富，味道正宗，环境优雅，服务周到。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-cutlery mr-2"></i>
+                            <span>信阳菜、家常菜</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-map-marker mr-2"></i>
+                            <span>浉河区民权路与人民路交叉口</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-phone mr-2"></i>
+                            <span>0376-6123456</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 餐馆 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative h-48">
+                        <img src="img/5.png" alt="南湾鱼庄" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">南湾鱼庄</h3>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            以经营南湾鱼为主的特色餐馆，鱼的做法多样，新鲜美味，环境优美。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-cutlery mr-2"></i>
+                            <span>河鲜、信阳菜</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-map-marker mr-2"></i>
+                            <span>南湾湖风景区入口处</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-phone mr-2"></i>
+                            <span>0376-6789012</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 餐馆 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative h-48">
+                        <img src="img/6.png" alt="固始鹅块大王" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">固始鹅块大王</h3>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            专注于固始鹅块的特色餐馆，鹅块味道正宗，蘸料独特，价格实惠。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-cutlery mr-2"></i>
+                            <span>固始鹅块、信阳炖菜</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-map-marker mr-2"></i>
+                            <span>平桥区平安大道中段</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-phone mr-2"></i>
+                            <span>0376-6345678</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食文化 -->
+    <section class="py-16 bg-primary bg-opacity-5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-4">信阳美食文化</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-leaf text-primary text-2xl"></i>
+                    </div>
+
+
+
+旅游攻略
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 旅游攻略</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653',
+                        light: '#F8F9FA'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .card-hover {
+                transition: transform 0.3s ease, box-shadow 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50 font-sans">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50" id="navbar">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary transition">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary transition">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary transition">美食推荐</a>
+                    <a href="travel-guide.html" class="font-medium text-primary border-b-2 border-primary">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600" id="menu-toggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-4 pb-2" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary">美食推荐</a>
+                    <a href="travel-guide.html" class="font-medium text-primary">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[40vh] overflow-hidden">
+            <img src="img/9.png" alt="信阳风光" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-4 text-shadow">
+                        信阳旅游攻略
+                    </h1>
+                    <p class="text-[clamp(1rem,2vw,1.2rem)] text-white max-w-2xl mx-auto text-shadow">
+                        精心整理的旅游指南，助您轻松畅游信阳
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 攻略内容 -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- 最佳旅游时间 -->
+        <section class="mb-16">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">最佳旅游时间</h2>
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-6 md:p-8 flex flex-col justify-center">
+                        <h3 class="text-xl font-semibold text-primary mb-4">四季皆宜，各有特色</h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-leaf text-green-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">春季 (3-5月):</span>
+                                    <span> 百花盛开，茶山青翠，是观赏自然风光的好时节</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-sun-o text-yellow-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">夏季 (6-8月):</span>
+                                    <span> 适合避暑，南湾湖游船、漂流等水上项目丰富</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-tree text-orange-500 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">秋季 (9-11月):</span>
+                                    <span> 气候凉爽，层林尽染，是登山赏秋的最佳季节</span>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-snowflake-o text-blue-300 mt-1 mr-3"></i>
+                                <div>
+                                    <span class="font-medium">冬季 (12-2月):</span>
+                                    <span> 游客较少，可体验冬日山水风情，偶有雪景</span>
+                                </div>
+                            </li>
+                        </ul>
+                        <p class="mt-5 text-gray-600">
+                            <strong>推荐:</strong> 4-5月或9-10月是游览信阳的最佳时期，气候宜人，景色优美。
+                        </p>
+                    </div>
+                    <div class="relative h-64 md:h-auto">
+                        <img src="img/10.png" alt="信阳四季风光" class="absolute w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 行程推荐 -->
+        <section class="mb-16">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">推荐行程</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- 一日游 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/11.png" alt="信阳一日游" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold text-dark">一日精华游</h3>
+                            <span class="bg-primary text-white text-sm px-3 py-1 rounded-full">短途</span>
+                        </div>
+                        <ul class="space-y-2 text-gray-600 text-sm mb-4">
+                            <li class="flex items-center">
+                                <i class="fa fa-clock-o text-primary mr-2"></i>
+                                <span>08:00-09:30 南湾湖景区</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-clock-o text-primary mr-2"></i>
+                                <span>10:00-12:00 南湾湖游船登岛</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-clock-o text-primary mr-2"></i>
+                                <span>12:30-13:30 品尝南湾鱼宴</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-clock-o text-primary mr-2"></i>
+                                <span>14:00-17:00 鸡公山景区游览</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-500 text-sm">适合时间紧张的游客，领略信阳山水精华</p>
+                    </div>
+                </div>
+                
+                <!-- 三日游 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/12.png" alt="信阳三日游" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold text-dark">深度三日游</h3>
+                            <span class="bg-accent text-white text-sm px-3 py-1 rounded-full">推荐</span>
+                        </div>
+                        <ul class="space-y-2 text-gray-600 text-sm mb-4">
+                            <li class="flex items-center">
+                                <i class="fa fa-calendar text-primary mr-2"></i>
+                                <span>Day1: 南湾湖 + 茶文化体验</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-calendar text-primary mr-2"></i>
+                                <span>Day2: 鸡公山一日游</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-calendar text-primary mr-2"></i>
+                                <span>Day3: 灵山寺 + 美食探寻</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-500 text-sm">全面体验信阳的自然风光与人文历史</p>
+                    </div>
+                </div>
+                
+                <!-- 五日游 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/13.png" alt="信阳五日游" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-center mb-3">
+                            <h3 class="text-lg font-semibold text-dark">全景五日游</h3>
+                            <span class="bg-secondary text-dark text-sm px-3 py-1 rounded-full">全景</span>
+                        </div>
+                        <ul class="space-y-2 text-gray-600 text-sm mb-4">
+                            <li class="flex items-center">
+                                <i class="fa fa-map-o text-primary mr-2"></i>
+                                <span>覆盖信阳主要景点及周边县镇</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-map-o text-primary mr-2"></i>
+                                <span>含固始、光山等地特色体验</span>
+                            </li>
+                            <li class="flex items-center">
+                                <i class="fa fa-map-o text-primary mr-2"></i>
+                                <span>深度感受豫风楚韵文化</span>
+                            </li>
+                        </ul>
+                        <p class="text-gray-500 text-sm">适合假期充裕，想全面了解信阳的游客</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 交通指南 -->
+        <section class="mb-16">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">交通指南</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                    <!-- 飞机 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-plane text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-dark mb-2">飞机</h3>
+                        <p class="text-gray-600 text-sm">
+                            信阳明港机场(IAH)有往返北京、上海、广州等城市的航班，机场有大巴接驳至市区。
+                        </p>
+                    </div>
+                    
+                    <!-- 火车 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-train text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-dark mb-2">火车</h3>
+                        <p class="text-gray-600 text-sm">
+                            信阳站和信阳东站(高铁站)连接全国主要城市，高铁可直达郑州、武汉、合肥等城市。
+                        </p>
+                    </div>
+                    
+                    <!-- 汽车 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-car text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-dark mb-2">汽车</h3>
+                        <p class="text-gray-600 text-sm">
+                            京港澳高速、沪陕高速穿境而过，市区有多个汽车站，方便前往周边县市。
+                        </p>
+                    </div>
+                    
+                    <!-- 市内交通 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-bus text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-dark mb-2">市内交通</h3>
+                        <p class="text-gray-600 text-sm">
+                            市区公交覆盖主要景点，出租车起步价6元，网约车也很方便，景区间有旅游专线。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 旅游贴士 -->
+        <section>
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">旅游贴士</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                    <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+                        <i class="fa fa-lightbulb-o mr-2"></i> 实用提示
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>夏季注意防晒，山区早晚温差大，建议带外套</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>品尝信阳菜可选择居民区附近的餐馆，味道正宗价格实惠</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>购买信阳毛尖建议到正规茶叶店，可现场品茶</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>部分景区较大，建议穿舒适的鞋子，准备必要的饮用水</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 card-hover">
+                    <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+                        <i class="fa fa-shield mr-2"></i> 注意事项
+                    </h3>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-exclamation-circle text-amber-500 mt-1 mr-3"></i>
+                            <span>景区内禁止吸烟，遵守景区规定，爱护环境</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-exclamation-circle text-amber-500 mt-1 mr-3"></i>
+                            <span>提前查询天气预报，雨天山路湿滑，注意安全</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-exclamation-circle text-amber-500 mt-1 mr-3"></i>
+                            <span>保管好个人财物，景区游客较多时提高警惕</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-exclamation-circle text-amber-500 mt-1 mr-3"></i>
+                            <span>尊重当地风俗习惯，进入寺庙等场所遵守相关规定</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="text-center">
+                <div class="flex justify-center items-center space-x-2 mb-4">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold">信阳旅游</span>
+                </div>
+                <p class="text-gray-400 mb-6 max-w-md mx-auto">
+                    信阳，一座山水之城，豫风楚韵，茶香四溢，欢迎您的到来
+                </p>
+                <div class="flex justify-center space-x-4 mb-6">
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fa fa-weibo text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fa fa-wechat text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fa fa-instagram text-xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-primary transition">
+                        <i class="fa fa-youtube-play text-xl"></i>
+                    </a>
+                </div>
+                <div class="text-gray-500 text-sm">
+                    <p>&copy; 2023 信阳旅游网 版权所有</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menu-toggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobile-menu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2');
+                navbar.classList.remove('py-3');
+                navbar.classList.add('bg-white/95');
+                navbar.classList.add('backdrop-blur-sm');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2');
+                navbar.classList.remove('bg-white/95');
+                navbar.classList.remove('backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
+    
+
+
+历史文化
+
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 文化历史</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary">美食推荐</a>
+                    <a href="travel-guide.html" class="font-medium text-gray-600 hover:text-primary">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-primary border-b-2 border-primary">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600" id="menuToggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-3 pb-2" id="mobileMenu">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-600 hover:text-primary py-1">首页</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary py-1">景点介绍</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary py-1">美食推荐</a>
+                    <a href="travel-guide.html" class="text-gray-600 hover:text-primary py-1">旅游攻略</a>
+                    <a href="culture.html" class="text-primary py-1">文化历史</a>
+                    <a href="customs.html" class="text-gray-600 hover:text-primary py-1">民俗风情</a>
+                    <a href="accommodation.html" class="text-gray-600 hover:text-primary py-1">住宿推荐</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-primary py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[40vh] overflow-hidden">
+            <img src="img/14.png" alt="信阳文化古迹" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-4 text-shadow">信阳文化历史</h1>
+                    <p class="text-[clamp(1rem,2vw,1.2rem)] text-white max-w-2xl mx-auto text-shadow">
+                        感受豫风楚韵，探寻千年古城的文化脉络
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 文化历史内容 -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- 历史沿革 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">历史沿革</h2>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-xl font-semibold text-primary mb-4">千年古城，历史悠久</h3>
+                        <p class="text-gray-700 mb-4">
+                            信阳历史悠久，早在8000多年前就有人类在此繁衍生息。西周时期属申国，春秋时期是楚文化的重要发源地之一，有"申城"之称。
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            信阳地处中原文化与楚文化的交汇地带，历史上是南北文化交融的重要枢纽。战国时期属楚国，汉代属汝南郡，唐宋时期成为重要的交通要塞和军事重镇。
+                        </p>
+                        <p class="text-gray-700">
+                            明清时期，信阳因地处南北交通要道而日益繁荣，成为豫南地区的政治、经济、文化中心。近代以来，信阳是著名的革命老区，是鄂豫皖革命根据地的重要组成部分。
+                        </p>
+                    </div>
+                    <div class="relative h-64 md:h-auto">
+                        <img src="img/15.png" alt="信阳历史遗迹" class="absolute w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文化特色 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">文化特色</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- 楚文化 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/16.png" alt="楚文化" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa fa-university text-primary mr-2"></i>楚文化
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            信阳是楚文化的重要发源地之一，出土了大量楚国文物，楚文化在这里留下了深刻印记，影响了当地的语言、风俗和艺术。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 茶文化 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/17.png" alt="茶文化" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa fa-leaf text-primary mr-2"></i>茶文化
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            信阳毛尖被誉为"绿茶之王"，历史悠久，茶文化底蕴深厚。采茶、制茶技艺独特，形成了独具特色的茶文化体系和茶道艺术。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 红色文化 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/18.png" alt="红色文化" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa fa-flag text-primary mr-2"></i>红色文化
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            信阳是著名的革命老区，鄂豫皖革命根据地的核心区域，留下了大量革命遗址和纪念地，形成了宝贵的红色文化和革命精神。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 历史名人 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">历史名人</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 名人1 -->
+                <div class="bg-white rounded-lg shadow-md p-5 text-center card-hover">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="img/19.png" alt="孙叔敖" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-semibold text-dark mb-1">孙叔敖</h3>
+                    <p class="text-gray-500 text-sm mb-2">春秋时期</p>
+                    <p class="text-gray-600 text-xs">楚国令尹，著名政治家、水利专家，主持修建了芍陂（今安丰塘）</p>
+                </div>
+                
+                <!-- 名人2 -->
+                <div class="bg-white rounded-lg shadow-md p-5 text-center card-hover">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="img/20.png" alt="司马光" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-semibold text-dark mb-1">司马光</h3>
+                    <p class="text-gray-500 text-sm mb-2">北宋时期</p>
+                    <p class="text-gray-600 text-xs">著名史学家、政治家，主编《资治通鉴》，出生于光山</p>
+                </div>
+                
+                <!-- 名人3 -->
+                <div class="bg-white rounded-lg shadow-md p-5 text-center card-hover">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="img/21.png" alt="郑成功" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-semibold text-dark mb-1">郑成功</h3>
+                    <p class="text-gray-500 text-sm mb-2">明末清初</p>
+                    <p class="text-gray-600 text-xs">著名民族英雄，其祖籍为固始县，收复台湾的民族英雄</p>
+                </div>
+                
+                <!-- 名人4 -->
+                <div class="bg-white rounded-lg shadow-md p-5 text-center card-hover">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="img/22.png" alt="许世友" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-semibold text-dark mb-1">许世友</h3>
+                    <p class="text-gray-500 text-sm mb-2">现代</p>
+                    <p class="text-gray-600 text-xs">著名军事家，开国上将，新县人，有着传奇的一生</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文化遗产 -->
+        <section>
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">文化遗产</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+                            <i class="fa fa-university mr-2"></i> 重要文化遗产
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span><strong>鸡公山近代建筑群</strong> - 融合中西建筑风格的避暑胜地</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span><strong>灵山寺</strong> - 始建于北魏，中原四大古寺之一</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span><strong>新县革命旧址群</strong> - 重要的红色文化遗产</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span><strong>城阳城遗址</strong> - 全国重点文物保护单位，楚国都城遗址</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden h-64">
+                        <img src="img/23.png" alt="信阳文化遗产" class="absolute w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center space-x-2 mb-4">
+                <i class="fa fa-map-marker text-primary text-2xl"></i>
+                <span class="text-xl font-bold">信阳旅游</span>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md mx-auto text-sm">
+                信阳，豫风楚韵，茶香四溢，一座来了就不想走的城市
+            </p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-weibo"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-wechat"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-instagram"></i></a>
+            </div>
+            <p class="text-gray-500 text-xs">&copy; 2023 信阳旅游网 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
+    
+
+
+民宿风情
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 民俗风情</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary">美食推荐</a>
+                    <a href="travel-guide.html" class="font-medium text-gray-600 hover:text-primary">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary">文化历史</a>
+                    <a href="customs.html" class="font-medium text-primary border-b-2 border-primary">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600" id="menuToggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-3 pb-2" id="mobileMenu">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-600 hover:text-primary py-1">首页</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary py-1">景点介绍</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary py-1">美食推荐</a>
+                    <a href="travel-guide.html" class="text-gray-600 hover:text-primary py-1">旅游攻略</a>
+                    <a href="culture.html" class="text-gray-600 hover:text-primary py-1">文化历史</a>
+                    <a href="customs.html" class="text-primary py-1">民俗风情</a>
+                    <a href="accommodation.html" class="text-gray-600 hover:text-primary py-1">住宿推荐</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-primary py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[40vh] overflow-hidden">
+            <img src="img/5.png" alt="信阳民俗活动" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-4 text-shadow">信阳民俗风情</h1>
+                    <p class="text-[clamp(1rem,2vw,1.2rem)] text-white max-w-2xl mx-auto text-shadow">
+                        体验豫风楚韵交融的独特民俗文化
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 民俗风情内容 -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- 民俗特色 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">民俗特色</h2>
+            
+            <div class="grid md:grid-cols-2 gap-6">
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative h-64">
+                        <img src="img/6.png" alt="信阳民俗" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-3">南北交融的民俗文化</h3>
+                        <p class="text-gray-700 mb-4">
+                            信阳地处南北交界，其民俗文化兼具中原文化与楚文化特色，形成了独特的"豫风楚韵"风格。这里的民俗既保留了北方的厚重，又融入了南方的灵动。
+                        </p>
+                        <p class="text-gray-700">
+                            语言上，信阳方言属于江淮官话，与河南大部分地区的中原官话有明显区别；饮食上以米饭为主，与南方饮食习惯相近；民间艺术则融合了南北特色。
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="relative h-64">
+                        <img src="img/7.png" alt="信阳传统服饰" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-primary mb-3">传统服饰与手工艺</h3>
+                        <p class="text-gray-700 mb-4">
+                            信阳传统服饰既体现了中原地区的朴素大方，又吸收了楚地服饰的灵动飘逸。民间手工艺发达，尤以竹编、柳编、刺绣最为著名。
+                        </p>
+                        <p class="text-gray-700">
+                            罗山皮影戏是信阳著名的民间艺术，距今已有2000多年历史，被列入国家级非物质文化遗产名录。光山羽绒画、固始柳编等手工艺品享誉海内外。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 节庆活动 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">节庆活动</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- 茶叶节 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/8.png" alt="信阳茶叶节" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-2">信阳茶叶节</h3>
+                        <p class="text-gray-500 text-sm mb-3">每年4月28日至5月2日</p>
+                        <p class="text-gray-600 text-sm">
+                            信阳国际茶文化节是当地最具影响力的节庆活动，期间举办茶叶展销、茶艺表演、茶文化论坛等活动，吸引海内外客商和游客。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 庙会 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/9.png" alt="灵山庙会" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-2">灵山庙会</h3>
+                        <p class="text-gray-500 text-sm mb-3">每年农历正月初一至十六</p>
+                        <p class="text-gray-600 text-sm">
+                            灵山庙会是豫南地区最大的庙会之一，有舞龙舞狮、戏曲表演、民间艺术展示等活动，香火旺盛，热闹非凡。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 龙舟赛 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/10.png" alt="南湾湖龙舟赛" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-2">南湾湖龙舟赛</h3>
+                        <p class="text-gray-500 text-sm mb-3">每年端午节期间</p>
+                        <p class="text-gray-600 text-sm">
+                            南湾湖龙舟赛是信阳端午节的重要活动，参赛队伍众多，场面壮观，体现了信阳人团结奋进的精神风貌。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 民间艺术 -->
+        <section>
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">民间艺术</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="grid md:grid-cols-4 gap-6">
+                    <!-- 皮影戏 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-film text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-dark mb-2">罗山皮影戏</h3>
+                        <p class="text-gray-600 text-sm">
+                            距今已有2000多年历史，造型精美，唱腔独特，被列入国家级非物质文化遗产
+                        </p>
+                    </div>
+                    
+                    <!-- 花鼓戏 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-music text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-dark mb-2">信阳花鼓戏</h3>
+                        <p class="text-gray-600 text-sm">
+                            流行于信阳地区的传统戏曲，曲调明快，表演生动，反映当地风土人情
+                        </p>
+                    </div>
+                    
+                    <!-- 民歌 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-microphone text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-dark mb-2">信阳民歌</h3>
+                        <p class="text-gray-600 text-sm">
+                            风格多样，有山歌、田歌、茶歌等，旋律优美，具有浓郁的地方特色
+                        </p>
+                    </div>
+                    
+                    <!-- 剪纸 -->
+                    <div class="text-center">
+                        <div class="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mb-4 mx-auto">
+                            <i class="fa fa-scissors text-primary text-2xl"></i>
+                        </div>
+                        <h3 class="font-semibold text-dark mb-2">民间剪纸</h3>
+                        <p class="text-gray-600 text-sm">
+                            历史悠久，题材广泛，造型简练，寓意吉祥，是信阳民间艺术的重要组成部分
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center space-x-2 mb-4">
+                <i class="fa fa-map-marker text-primary text-2xl"></i>
+                <span class="text-xl font-bold">信阳旅游</span>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md mx-auto text-sm">
+                信阳，豫风楚韵，茶香四溢，一座来了就不想走的城市
+            </p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-weibo"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-wechat"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-instagram"></i></a>
+            </div>
+            <p class="text-gray-500 text-xs">&copy; 2023 信阳旅游网 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
+    住宿推荐
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 住宿推荐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary">美食推荐</a>
+                    <a href="travel-guide.html" class="font-medium text-gray-600 hover:text-primary">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-primary border-b-2 border-primary">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600" id="menuToggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-3 pb-2" id="mobileMenu">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-600 hover:text-primary py-1">首页</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary py-1">景点介绍</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary py-1">美食推荐</a>
+                    <a href="travel-guide.html" class="text-gray-600 hover:text-primary py-1">旅游攻略</a>
+                    <a href="culture.html" class="text-gray-600 hover:text-primary py-1">文化历史</a>
+                    <a href="customs.html" class="text-gray-600 hover:text-primary py-1">民俗风情</a>
+                    <a href="accommodation.html" class="text-primary py-1">住宿推荐</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-primary py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[40vh] overflow-hidden">
+            <img src="img/11.png" alt="信阳酒店住宿" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-4 text-shadow">信阳住宿推荐</h1>
+                    <p class="text-[clamp(1rem,2vw,1.2rem)] text-white max-w-2xl mx-auto text-shadow">
+                        精选各类住宿选择，让您的信阳之旅舒适惬意
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 住宿推荐内容 -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- 住宿分类 -->
+        <section class="mb-10">
+            <div class="flex overflow-x-auto pb-4 mb-8 scrollbar-hide space-x-4 justify-center">
+                <button class="bg-primary text-white px-6 py-2 rounded-full whitespace-nowrap">全部住宿</button>
+                <button class="bg-white text-gray-700 px-6 py-2 rounded-full shadow-sm hover:shadow whitespace-nowrap">豪华酒店</button>
+                <button class="bg-white text-gray-700 px-6 py-2 rounded-full shadow-sm hover:shadow whitespace-nowrap">商务酒店</button>
+                <button class="bg-white text-gray-700 px-6 py-2 rounded-full shadow-sm hover:shadow whitespace-nowrap">特色民宿</button>
+                <button class="bg-white text-gray-700 px-6 py-2 rounded-full shadow-sm hover:shadow whitespace-nowrap">景区周边</button>
+            </div>
+        </section>
+
+        <!-- 精选住宿 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">精选住宿</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 酒店1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-56">
+                        <img src="img/12.png" alt="信阳国际大酒店" class="absolute w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-bold px-3 py-1 rounded-full">
+                            豪华
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">信阳国际大酒店</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            浉河区东方红大道1号
+                        </p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            位于市中心，交通便利，设施豪华，提供高品质服务，距离主要景点较近。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥580</span>
+                                <span class="text-gray-500 text-sm">/晚起</span>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary/90 transition">
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 酒店2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-56">
+                        <img src="img/13.png" alt="南湾湖度假酒店" class="absolute w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-secondary text-dark text-sm font-bold px-3 py-1 rounded-full">
+                            湖景
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">南湾湖度假酒店</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            南湾湖风景区内
+                        </p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            坐落于南湾湖畔，湖景房可欣赏美丽湖景，环境清幽，适合度假休闲。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥420</span>
+                                <span class="text-gray-500 text-sm">/晚起</span>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary/90 transition">
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 民宿1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-56">
+                        <img src="img/14.png" alt="茶乡民宿" class="absolute w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            民宿
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">茶乡民宿</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            浉河区董家河镇
+                        </p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            位于茶山之中，传统民居改造，环境优美，可体验采茶、制茶乐趣。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥260</span>
+                                <span class="text-gray-500 text-sm">/晚起</span>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary/90 transition">
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 经济实惠选择 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">经济实惠选择</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 酒店3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-48">
+                        <img src="img/15.png" alt="信阳快捷酒店" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-dark mb-1">城市快捷酒店</h3>
+                        <div class="text-secondary text-sm mb-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-1"></i>
+                            平桥区中心大道88号
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">¥168</span>
+                                <span class="text-gray-500 text-xs">/晚起</span>
+                            </div>
+                            <button class="bg-gray-100 text-primary px-3 py-1 rounded-lg text-xs hover:bg-gray-200 transition">
+                                预订
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 酒店4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-48">
+                        <img src="img/16.png" alt="火车站宾馆" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-dark mb-1">火车站商务宾馆</h3>
+                        <div class="text-secondary text-sm mb-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-1"></i>
+                            浉河区火车站广场东侧
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">¥148</span>
+                                <span class="text-gray-500 text-xs">/晚起</span>
+                            </div>
+                            <button class="bg-gray-100 text-primary px-3 py-1 rounded-lg text-xs hover:bg-gray-200 transition">
+                                预订
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 民宿2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-48">
+                        <img src="img/17.png" alt="乡村客栈" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-dark mb-1">鸡公山乡村客栈</h3>
+                        <div class="text-secondary text-sm mb-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-1"></i>
+                            鸡公山风景区入口处
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">¥198</span>
+                                <span class="text-gray-500 text-xs">/晚起</span>
+                            </div>
+                            <button class="bg-gray-100 text-primary px-3 py-1 rounded-lg text-xs hover:bg-gray-200 transition">
+                                预订
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 住宿小贴士 -->
+        <section>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+                    <i class="fa fa-lightbulb-o mr-2"></i> 住宿小贴士
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>旅游旺季（4-5月、9-10月）建议提前1-2周预订住宿</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>南湾湖、鸡公山等景区内住宿需提前预订，尤其是周末</span>
+                        </li>
+                    </ul>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>市区住宿选择较多，交通便利，价格相对实惠</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>选择特色民宿可体验当地文化，建议查看住客评价后预订</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center space-x-2 mb-4">
+                <i class="fa fa-map-marker text-primary text-2xl"></i>
+                <span class="text-xl font-bold">信阳旅游</span>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md mx-auto text-sm">
+                信阳，豫风楚韵，茶香四溢，一座来了就不想走的城市
+            </p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-weibo"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-wechat"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-instagram"></i></a>
+            </div>
+            <p class="text-gray-500 text-xs">&copy; 2023 信阳旅游网 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
+    
+
+联系我们
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 联系我们</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .input-focus {
+                @apply focus:border-primary focus:ring-2 focus:ring-primary/20 focus:outline-none;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary">美食推荐</a>
+                    <a href="travel-guide.html" class="font-medium text-gray-600 hover:text-primary">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-primary border-b-2 border-primary">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600" id="menuToggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-3 pb-2" id="mobileMenu">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-600 hover:text-primary py-1">首页</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary py-1">景点介绍</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary py-1">美食推荐</a>
+                    <a href="travel-guide.html" class="text-gray-600 hover:text-primary py-1">旅游攻略</a>
+                    <a href="culture.html" class="text-gray-600 hover:text-primary py-1">文化历史</a>
+                    <a href="customs.html" class="text-gray-600 hover:text-primary py-1">民俗风情</a>
+                    <a href="accommodation.html" class="text-gray-600 hover:text-primary py-1">住宿推荐</a>
+                    <a href="contact.html" class="text-primary py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[40vh] overflow-hidden">
+            <img src="img/18.png" alt="信阳风景" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-4 text-shadow">联系我们</h1>
+                    <p class="text-[clamp(1rem,2vw,1.2rem)] text-white max-w-2xl mx-auto text-shadow">
+                        如有任何问题或建议，欢迎随时与我们联系
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 联系内容 -->
+    <main class="container mx-auto px-4 py-12">
+        <div class="grid md:grid-cols-2 gap-8">
+            <!-- 联系信息 -->
+            <section>
+                <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6">联系方式</h2>
+                
+                <div class="bg-white rounded-lg shadow-md p-6 mb-6">
+                    <div class="space-y-4">
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-map-marker text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-dark mb-1">办公地址</h3>
+                                <p class="text-gray-600">信阳市浉河区鸡公山大街1号旅游大厦</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-phone text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-dark mb-1">联系电话</h3>
+                                <p class="text-gray-600">0376-6366666</p>
+                                <p class="text-gray-600 text-sm">工作时间: 周一至周五 9:00-17:00</p>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start">
+                            <div class="w-12 h-12 bg-primary/10 rounded-full flex items-center justify-center mr-4 flex-shrink-0">
+                                <i class="fa fa-envelope text-primary text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="font-semibold text-dark mb-1">电子邮箱</h3>
+                                <p class="text-gray-600">info@xinyang-tourism.com</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <h3 class="font-semibold text-dark mb-4">关注我们</h3>
+                    <div class="flex space-x-4">
+                        <a href="#" class="w-12 h-12 bg-[#E6162D]/10 rounded-full flex items-center justify-center text-[#E6162D] hover:bg-[#E6162D]/20 transition">
+                            <i class="fa fa-weibo text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-[#07C160]/10 rounded-full flex items-center justify-center text-[#07C160] hover:bg-[#07C160]/20 transition">
+                            <i class="fa fa-wechat text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-[#E4405F]/10 rounded-full flex items-center justify-center text-[#E4405F] hover:bg-[#E4405F]/20 transition">
+                            <i class="fa fa-instagram text-xl"></i>
+                        </a>
+                        <a href="#" class="w-12 h-12 bg-[#FF0000]/10 rounded-full flex items-center justify-center text-[#FF0000] hover:bg-[#FF0000]/20 transition">
+                            <i class="fa fa-youtube-play text-xl"></i>
+                        </a>
+                    </div>
+                    
+                    <div class="mt-6">
+                        <h4 class="text-sm font-medium text-gray-700 mb-2">微信公众号</h4>
+                        <div class="bg-gray-100 p-3 inline-block rounded">
+                            <img src="img/19.png" alt="信阳旅游微信公众号二维码" class="w-32 h-32 object-cover">
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <!-- 联系表单 -->
+            <section>
+                <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6">留言反馈</h2>
+                
+                <div class="bg-white rounded-lg shadow-md p-6">
+                    <form>
+                        <div class="mb-4">
+                            <label for="name" class="block text-gray-700 mb-2 text-sm">姓名</label>
+                            <input type="text" id="name" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm input-focus" placeholder="请输入您的姓名">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="email" class="block text-gray-700 mb-2 text-sm">电子邮箱</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm input-focus" placeholder="请输入您的邮箱">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="phone" class="block text-gray-700 mb-2 text-sm">联系电话</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm input-focus" placeholder="请输入您的电话">
+                        </div>
+                        
+                        <div class="mb-4">
+                            <label for="subject" class="block text-gray-700 mb-2 text-sm">主题</label>
+                            <select id="subject" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm input-focus">
+                                <option value="">请选择留言主题</option>
+                                <option value="inquiry">旅游咨询</option>
+                                <option value="suggestion">建议反馈</option>
+                                <option value="complaint">投诉举报</option>
+                                <option value="cooperation">商务合作</option>
+                                <option value="other">其他问题</option>
+                            </select>
+                        </div>
+                        
+                        <div class="mb-6">
+                            <label for="message" class="block text-gray-700 mb-2 text-sm">留言内容</label>
+                            <textarea id="message" rows="4" class="w-full px-4 py-2 border border-gray-300 rounded-lg text-sm input-focus" placeholder="请输入您的留言内容"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-primary text-white py-3 rounded-lg font-medium hover:bg-primary/90 transition">
+                            提交留言
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="mt-6 bg-primary/10 rounded-lg p-4">
+                    <h3 class="font-semibold text-primary mb-2 flex items-center">
+                        <i class="fa fa-info-circle mr-2"></i> 温馨提示
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        我们将在24小时内回复您的留言，如需紧急帮助，请直接拨打我们的服务热线：0376-6366666
+                    </p>
+                </div>
+            </section>
+        </div>
+        
+        <!-- 常见问题 -->
+        <section class="mt-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">常见问题</h2>
+            
+            <div class="grid md:grid-cols-2 gap-4">
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-medium text-dark mb-2 flex items-center">
+                        <i class="fa fa-question-circle text-primary mr-2"></i> 如何预订信阳景区门票？
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        您可以通过各景区官方网站、微信公众号或旅游平台进行在线预订，也可以到景区现场购票。旅游旺季建议提前在线预订。
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-medium text-dark mb-2 flex items-center">
+                        <i class="fa fa-question-circle text-primary mr-2"></i> 信阳各景区之间有直达班车吗？
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        信阳市区有旅游专线连接主要景区，也可以在信阳汽车站乘坐前往各景区所在乡镇的班车，到达后转乘当地交通工具。
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-medium text-dark mb-2 flex items-center">
+                        <i class="fa fa-question-circle text-primary mr-2"></i> 信阳毛尖最佳购买地点在哪里？
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        建议到信阳市区的正规茶叶店购买，如信阳国际茶城，或直接前往董家河、浉河港等产茶区，可现场品茶选购。
+                    </p>
+                </div>
+                
+                <div class="bg-white rounded-lg shadow-md p-4">
+                    <h3 class="font-medium text-dark mb-2 flex items-center">
+                        <i class="fa fa-question-circle text-primary mr-2"></i> 信阳旅游最佳季节是什么时候？
+                    </h3>
+                    <p class="text-gray-600 text-sm">
+                        信阳四季皆宜旅游，最佳季节为春季（4-5月）和秋季（9-10月），气候宜人，景色优美，尤其适合户外活动。
+                    </p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center space-x-2 mb-4">
+                <i class="fa fa-map-marker text-primary text-2xl"></i>
+                <span class="text-xl font-bold">信阳旅游</span>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md mx-auto text-sm">
+                信阳，豫风楚韵，茶香四溢，一座来了就不想走的城市
+            </p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-weibo"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-wechat"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-instagram"></i></a>
+            </div>
+            <p class="text-gray-500 text-xs">&copy; 2023 信阳旅游网 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+
+        // 表单提交处理
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('感谢您的留言，我们将尽快回复您！');
+            this.reset();
+        });
+    </script>
+</body>
+</html>
+    
