@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 文化历史</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary">美食推荐</a>
+                    <a href="travel-guide.html" class="font-medium text-gray-600 hover:text-primary">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-primary border-b-2 border-primary">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600" id="menuToggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-3 pb-2" id="mobileMenu">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-600 hover:text-primary py-1">首页</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary py-1">景点介绍</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary py-1">美食推荐</a>
+                    <a href="travel-guide.html" class="text-gray-600 hover:text-primary py-1">旅游攻略</a>
+                    <a href="culture.html" class="text-primary py-1">文化历史</a>
+                    <a href="customs.html" class="text-gray-600 hover:text-primary py-1">民俗风情</a>
+                    <a href="accommodation.html" class="text-gray-600 hover:text-primary py-1">住宿推荐</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-primary py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[40vh] overflow-hidden">
+            <img src="img/14.png" alt="信阳文化古迹" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-4 text-shadow">信阳文化历史</h1>
+                    <p class="text-[clamp(1rem,2vw,1.2rem)] text-white max-w-2xl mx-auto text-shadow">
+                        感受豫风楚韵，探寻千年古城的文化脉络
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 文化历史内容 -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- 历史沿革 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">历史沿革</h2>
+            
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="grid md:grid-cols-2">
+                    <div class="p-6 md:p-8">
+                        <h3 class="text-xl font-semibold text-primary mb-4">千年古城，历史悠久</h3>
+                        <p class="text-gray-700 mb-4">
+                            信阳历史悠久，早在8000多年前就有人类在此繁衍生息。西周时期属申国，春秋时期是楚文化的重要发源地之一，有"申城"之称。
+                        </p>
+                        <p class="text-gray-700 mb-4">
+                            信阳地处中原文化与楚文化的交汇地带，历史上是南北文化交融的重要枢纽。战国时期属楚国，汉代属汝南郡，唐宋时期成为重要的交通要塞和军事重镇。
+                        </p>
+                        <p class="text-gray-700">
+                            明清时期，信阳因地处南北交通要道而日益繁荣，成为豫南地区的政治、经济、文化中心。近代以来，信阳是著名的革命老区，是鄂豫皖革命根据地的重要组成部分。
+                        </p>
+                    </div>
+                    <div class="relative h-64 md:h-auto">
+                        <img src="img/15.png" alt="信阳历史遗迹" class="absolute w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文化特色 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">文化特色</h2>
+            
+            <div class="grid md:grid-cols-3 gap-6">
+                <!-- 楚文化 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/16.png" alt="楚文化" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa fa-university text-primary mr-2"></i>楚文化
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            信阳是楚文化的重要发源地之一，出土了大量楚国文物，楚文化在这里留下了深刻印记，影响了当地的语言、风俗和艺术。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 茶文化 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/17.png" alt="茶文化" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa fa-leaf text-primary mr-2"></i>茶文化
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            信阳毛尖被誉为"绿茶之王"，历史悠久，茶文化底蕴深厚。采茶、制茶技艺独特，形成了独具特色的茶文化体系和茶道艺术。
+                        </p>
+                    </div>
+                </div>
+                
+                <!-- 红色文化 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="h-48 overflow-hidden">
+                        <img src="img/18.png" alt="红色文化" class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-lg font-semibold text-dark mb-3 flex items-center">
+                            <i class="fa fa-flag text-primary mr-2"></i>红色文化
+                        </h3>
+                        <p class="text-gray-600 text-sm">
+                            信阳是著名的革命老区，鄂豫皖革命根据地的核心区域，留下了大量革命遗址和纪念地，形成了宝贵的红色文化和革命精神。
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 历史名人 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">历史名人</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- 名人1 -->
+                <div class="bg-white rounded-lg shadow-md p-5 text-center card-hover">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="img/19.png" alt="孙叔敖" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-semibold text-dark mb-1">孙叔敖</h3>
+                    <p class="text-gray-500 text-sm mb-2">春秋时期</p>
+                    <p class="text-gray-600 text-xs">楚国令尹，著名政治家、水利专家，主持修建了芍陂（今安丰塘）</p>
+                </div>
+                
+                <!-- 名人2 -->
+                <div class="bg-white rounded-lg shadow-md p-5 text-center card-hover">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="img/20.png" alt="司马光" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-semibold text-dark mb-1">司马光</h3>
+                    <p class="text-gray-500 text-sm mb-2">北宋时期</p>
+                    <p class="text-gray-600 text-xs">著名史学家、政治家，主编《资治通鉴》，出生于光山</p>
+                </div>
+                
+                <!-- 名人3 -->
+                <div class="bg-white rounded-lg shadow-md p-5 text-center card-hover">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="img/21.png" alt="郑成功" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-semibold text-dark mb-1">郑成功</h3>
+                    <p class="text-gray-500 text-sm mb-2">明末清初</p>
+                    <p class="text-gray-600 text-xs">著名民族英雄，其祖籍为固始县，收复台湾的民族英雄</p>
+                </div>
+                
+                <!-- 名人4 -->
+                <div class="bg-white rounded-lg shadow-md p-5 text-center card-hover">
+                    <div class="w-24 h-24 mx-auto mb-4 rounded-full overflow-hidden border-4 border-primary/20">
+                        <img src="img/22.png" alt="许世友" class="w-full h-full object-cover">
+                    </div>
+                    <h3 class="font-semibold text-dark mb-1">许世友</h3>
+                    <p class="text-gray-500 text-sm mb-2">现代</p>
+                    <p class="text-gray-600 text-xs">著名军事家，开国上将，新县人，有着传奇的一生</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- 文化遗产 -->
+        <section>
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">文化遗产</h2>
+            
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+                            <i class="fa fa-university mr-2"></i> 重要文化遗产
+                        </h3>
+                        <ul class="space-y-3 text-gray-700">
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span><strong>鸡公山近代建筑群</strong> - 融合中西建筑风格的避暑胜地</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span><strong>灵山寺</strong> - 始建于北魏，中原四大古寺之一</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span><strong>新县革命旧址群</strong> - 重要的红色文化遗产</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fa fa-check-circle text-primary mt-1 mr-3"></i>
+                                <span><strong>城阳城遗址</strong> - 全国重点文物保护单位，楚国都城遗址</span>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="relative rounded-lg overflow-hidden h-64">
+                        <img src="img/23.png" alt="信阳文化遗产" class="absolute w-full h-full object-cover">
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center space-x-2 mb-4">
+                <i class="fa fa-map-marker text-primary text-2xl"></i>
+                <span class="text-xl font-bold">信阳旅游</span>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md mx-auto text-sm">
+                信阳，豫风楚韵，茶香四溢，一座来了就不想走的城市
+            </p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-weibo"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-wechat"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-instagram"></i></a>
+            </div>
+            <p class="text-gray-500 text-xs">&copy; 2023 信阳旅游网 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 美食推荐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653',
+                        light: '#F8F9FA'
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'system-ui', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .content-auto {
+                content-visibility: auto;
+            }
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .food-card {
+                transition: all 0.3s ease;
+            }
+            .food-card:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            }
+        }
+    </style>
+</head>
+<body class="bg-light text-gray-800">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-8">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary transition py-1">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary transition py-1">景点介绍</a>
+                    <a href="food.html" class="font-medium text-primary border-b-2 border-primary py-1">美食推荐</a>
+                    <a href="攻略.html" class="font-medium text-gray-600 hover:text-primary transition py-1">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition py-1">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition py-1">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition py-1">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition py-1">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600 focus:outline-none" id="menu-toggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-4 pb-2" id="mobile-menu">
+                <div class="flex flex-col space-y-3">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary transition py-1">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary transition py-1">景点介绍</a>
+                    <a href="food.html" class="font-medium text-primary py-1">美食推荐</a>
+                    <a href="攻略.html" class="font-medium text-gray-600 hover:text-primary transition py-1">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary transition py-1">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary transition py-1">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-gray-600 hover:text-primary transition py-1">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary transition py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[50vh] overflow-hidden">
+            <img src="img/6.png" alt="信阳美食" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(2rem,4vw,3rem)] font-bold text-white mb-4 text-shadow">
+                        信阳美食推荐
+                    </h1>
+                    <p class="text-[clamp(1rem,2vw,1.25rem)] text-white max-w-2xl mx-auto text-shadow">
+                        品味信阳独特风味，感受"豫风楚韵"的饮食文化
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 美食介绍 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-4">信阳美食文化</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    信阳地处河南南部，与湖北接壤，饮食文化兼具豫菜和楚菜的特点，口味偏咸鲜，擅长炖、炒、焖等技法，注重食材本味
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 gap-12 items-center">
+                <div>
+                    <img src="img/7.png" alt="信阳美食" class="rounded-lg shadow-xl w-full h-auto">
+                </div>
+                <div>
+                    <h3 class="text-2xl font-semibold text-dark mb-4">豫南风味，楚菜遗风</h3>
+                    <p class="text-gray-600 mb-4 leading-relaxed">
+                        信阳菜是河南菜的重要分支，同时又深受楚菜影响，形成了自己独特的风格。与河南大部分地区不同，信阳人以米饭为主食，菜肴也多偏向南方口味。
+                    </p>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        信阳菜的特点是：选料严谨，注重鲜活；刀工精细，造型美观；讲究火候，擅长炖焖；味道醇厚，咸鲜微辣；汤汁浓郁，营养丰富。
+                    </p>
+                    <div class="grid grid-cols-2 gap-4">
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>食材新鲜天然</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>注重原汁原味</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>擅长炖菜技法</span>
+                        </div>
+                        <div class="flex items-center">
+                            <i class="fa fa-check-circle text-primary mr-2"></i>
+                            <span>风味咸鲜微辣</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 特色美食 -->
+    <section class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-12 text-center">特色美食</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 美食 1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/6.png" alt="信阳炖菜" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-bold px-3 py-1 rounded-full">
+                            必尝
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">信阳炖菜</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            信阳炖菜是信阳菜的代表，有着"无炖不成席"的说法。采用当地新鲜食材，以砂锅慢炖而成，保持了食材的原汁原味，汤汁浓郁鲜美，营养丰富。常见的有清炖南湾鱼、炖柴鸡、炖腊肉等。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 信阳市各区均有</span>
+                            <span class="text-primary font-medium">人均 ¥50-80</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/7.png" alt="固始鹅块" class="w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-bold px-3 py-1 rounded-full">
+                            必尝
+                        </div>
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">固始鹅块</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            固始鹅块是信阳固始县的传统名吃，选用当地散养的大白鹅，经特殊工艺制作而成。鹅肉鲜嫩，汤汁浓郁，配以秘制蘸料，风味独特。食用时一般将鹅肉切成块，与汤汁、辣椒等一起炖煮，香气四溢。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 固始县及信阳市区</span>
+                            <span class="text-primary font-medium">人均 ¥40-60</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/8.png" alt="南湾鱼" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">南湾鱼</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            南湾鱼产自信阳南湾湖，因水质优良，鱼肉细嫩鲜美，无土腥味，深受游客喜爱。南湾鱼的做法多样，可清炖、红烧、香煎等，其中以清炖南湾鱼头最具特色，汤汁乳白，味道鲜美，营养丰富。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 南湾湖周边及市区</span>
+                            <span class="text-primary font-medium">人均 ¥60-100</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/1.png" alt="信阳毛尖" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">信阳毛尖</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            信阳毛尖是中国十大名茶之一，属于绿茶类。因条索细圆，紧直有锋苗，色泽翠绿，白毫显露，冲泡后香气清高，滋味鲜爽，被誉为"绿茶之王"。信阳毛尖不仅是上好的饮品，也可用于烹饪，如毛尖炒鸡蛋等。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 信阳市各区均有销售</span>
+                            <span class="text-primary font-medium">¥100-1000/斤</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 5 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/2.png" alt="罗山大肠汤" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">罗山大肠汤</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            罗山大肠汤是信阳罗山县的特色小吃，以猪大肠为主料，配以猪血、豆腐等食材，用特制调料炖煮而成。汤色红亮，味道浓郁，肥而不腻，辣而不燥，是当地人和游客都喜爱的美食。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 罗山县及信阳市区</span>
+                            <span class="text-primary font-medium">人均 ¥20-30</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 美食 6 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden food-card">
+                    <div class="relative h-60">
+                        <img src="img/3.png" alt="光山麻鸭蛋" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-semibold text-dark mb-2">光山麻鸭蛋</h3>
+                        <div class="text-secondary mb-3">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 mb-4 text-sm">
+                            光山麻鸭蛋是信阳光山县的特产，以当地散养的麻鸭所产的鸭蛋为原料，采用传统工艺腌制而成。蛋青呈碧绿色，蛋黄橙黄，质地细嫩，味道鲜美，营养丰富，是当地著名的风味食品和馈赠佳品。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-sm text-gray-500"><i class="fa fa-map-marker mr-1"></i> 光山县及信阳市区</span>
+                            <span class="text-primary font-medium">¥1.5-3/个</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 推荐餐馆 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-4">推荐餐馆</h2>
+                <div class="w-20 h-1 bg-primary mx-auto mb-6"></div>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    这些餐馆以正宗的信阳菜闻名，是品尝当地美食的好去处
+                </p>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- 餐馆 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative h-48">
+                        <img src="img/4.png" alt="信阳人家" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">信阳人家</h3>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            信阳市知名的信阳菜餐馆，菜品丰富，味道正宗，环境优雅，服务周到。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-cutlery mr-2"></i>
+                            <span>信阳菜、家常菜</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-map-marker mr-2"></i>
+                            <span>浉河区民权路与人民路交叉口</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-phone mr-2"></i>
+                            <span>0376-6123456</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 餐馆 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative h-48">
+                        <img src="img/5.png" alt="南湾鱼庄" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">南湾鱼庄</h3>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            以经营南湾鱼为主的特色餐馆，鱼的做法多样，新鲜美味，环境优美。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-cutlery mr-2"></i>
+                            <span>河鲜、信阳菜</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-map-marker mr-2"></i>
+                            <span>南湾湖风景区入口处</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-phone mr-2"></i>
+                            <span>0376-6789012</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 餐馆 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden hover:shadow-lg transition-shadow">
+                    <div class="relative h-48">
+                        <img src="img/6.png" alt="固始鹅块大王" class="w-full h-full object-cover">
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">固始鹅块大王</h3>
+                            <div class="text-secondary text-sm">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3">
+                            专注于固始鹅块的特色餐馆，鹅块味道正宗，蘸料独特，价格实惠。
+                        </p>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-cutlery mr-2"></i>
+                            <span>固始鹅块、信阳炖菜</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm mb-2">
+                            <i class="fa fa-map-marker mr-2"></i>
+                            <span>平桥区平安大道中段</span>
+                        </div>
+                        <div class="flex items-center text-gray-500 text-sm">
+                            <i class="fa fa-phone mr-2"></i>
+                            <span>0376-6345678</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 美食文化 -->
+    <section class="py-16 bg-primary bg-opacity-5">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-[clamp(1.5rem,3vw,2rem)] font-bold text-dark mb-4">信阳美食文化</h2>
+                <div class="w-20 h-1 bg-primary mx-auto"></div>
+            </div>
+            
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-white p-6 rounded-lg shadow-sm">
+                    <div class="w-16 h-16 bg-primary bg-opacity-10 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fa fa-leaf text-primary text-2xl"></i>
+                    </div>

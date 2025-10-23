@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>信阳旅游 - 住宿推荐</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2A9D8F',
+                        secondary: '#E9C46A',
+                        accent: '#F4A261',
+                        dark: '#264653'
+                    }
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+            }
+            .card-hover {
+                transition: all 0.3s ease;
+            }
+            .card-hover:hover {
+                transform: translateY(-5px);
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 导航栏 -->
+    <nav class="bg-white shadow-md fixed w-full z-50 transition-all duration-300">
+        <div class="container mx-auto px-4 py-3">
+            <div class="flex justify-between items-center">
+                <a href="index.html" class="flex items-center space-x-2">
+                    <i class="fa fa-map-marker text-primary text-2xl"></i>
+                    <span class="text-xl font-bold text-dark">信阳旅游</span>
+                </a>
+                
+                <!-- 桌面导航 -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="index.html" class="font-medium text-gray-600 hover:text-primary">首页</a>
+                    <a href="attractions.html" class="font-medium text-gray-600 hover:text-primary">景点介绍</a>
+                    <a href="food.html" class="font-medium text-gray-600 hover:text-primary">美食推荐</a>
+                    <a href="travel-guide.html" class="font-medium text-gray-600 hover:text-primary">旅游攻略</a>
+                    <a href="culture.html" class="font-medium text-gray-600 hover:text-primary">文化历史</a>
+                    <a href="customs.html" class="font-medium text-gray-600 hover:text-primary">民俗风情</a>
+                    <a href="accommodation.html" class="font-medium text-primary border-b-2 border-primary">住宿推荐</a>
+                    <a href="contact.html" class="font-medium text-gray-600 hover:text-primary">联系我们</a>
+                </div>
+                
+                <!-- 移动端菜单按钮 -->
+                <button class="md:hidden text-gray-600" id="menuToggle">
+                    <i class="fa fa-bars text-xl"></i>
+                </button>
+            </div>
+            
+            <!-- 移动端导航菜单 -->
+            <div class="md:hidden hidden mt-3 pb-2" id="mobileMenu">
+                <div class="flex flex-col space-y-2">
+                    <a href="index.html" class="text-gray-600 hover:text-primary py-1">首页</a>
+                    <a href="attractions.html" class="text-gray-600 hover:text-primary py-1">景点介绍</a>
+                    <a href="food.html" class="text-gray-600 hover:text-primary py-1">美食推荐</a>
+                    <a href="travel-guide.html" class="text-gray-600 hover:text-primary py-1">旅游攻略</a>
+                    <a href="culture.html" class="text-gray-600 hover:text-primary py-1">文化历史</a>
+                    <a href="customs.html" class="text-gray-600 hover:text-primary py-1">民俗风情</a>
+                    <a href="accommodation.html" class="text-primary py-1">住宿推荐</a>
+                    <a href="contact.html" class="text-gray-600 hover:text-primary py-1">联系我们</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 页面标题 -->
+    <header class="pt-16">
+        <div class="relative h-[40vh] overflow-hidden">
+            <img src="img/11.png" alt="信阳酒店住宿" class="absolute w-full h-full object-cover">
+            <div class="absolute inset-0 bg-dark bg-opacity-60"></div>
+            <div class="relative h-full flex items-center justify-center text-center px-4">
+                <div>
+                    <h1 class="text-[clamp(1.8rem,3vw,2.5rem)] font-bold text-white mb-4 text-shadow">信阳住宿推荐</h1>
+                    <p class="text-[clamp(1rem,2vw,1.2rem)] text-white max-w-2xl mx-auto text-shadow">
+                        精选各类住宿选择，让您的信阳之旅舒适惬意
+                    </p>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- 住宿推荐内容 -->
+    <main class="container mx-auto px-4 py-12">
+        <!-- 住宿分类 -->
+        <section class="mb-10">
+            <div class="flex overflow-x-auto pb-4 mb-8 scrollbar-hide space-x-4 justify-center">
+                <button class="bg-primary text-white px-6 py-2 rounded-full whitespace-nowrap">全部住宿</button>
+                <button class="bg-white text-gray-700 px-6 py-2 rounded-full shadow-sm hover:shadow whitespace-nowrap">豪华酒店</button>
+                <button class="bg-white text-gray-700 px-6 py-2 rounded-full shadow-sm hover:shadow whitespace-nowrap">商务酒店</button>
+                <button class="bg-white text-gray-700 px-6 py-2 rounded-full shadow-sm hover:shadow whitespace-nowrap">特色民宿</button>
+                <button class="bg-white text-gray-700 px-6 py-2 rounded-full shadow-sm hover:shadow whitespace-nowrap">景区周边</button>
+            </div>
+        </section>
+
+        <!-- 精选住宿 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">精选住宿</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 酒店1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-56">
+                        <img src="img/12.png" alt="信阳国际大酒店" class="absolute w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-accent text-white text-sm font-bold px-3 py-1 rounded-full">
+                            豪华
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">信阳国际大酒店</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            浉河区东方红大道1号
+                        </p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            位于市中心，交通便利，设施豪华，提供高品质服务，距离主要景点较近。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥580</span>
+                                <span class="text-gray-500 text-sm">/晚起</span>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary/90 transition">
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 酒店2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-56">
+                        <img src="img/13.png" alt="南湾湖度假酒店" class="absolute w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-secondary text-dark text-sm font-bold px-3 py-1 rounded-full">
+                            湖景
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">南湾湖度假酒店</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            南湾湖风景区内
+                        </p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            坐落于南湾湖畔，湖景房可欣赏美丽湖景，环境清幽，适合度假休闲。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥420</span>
+                                <span class="text-gray-500 text-sm">/晚起</span>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary/90 transition">
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 民宿1 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-56">
+                        <img src="img/14.png" alt="茶乡民宿" class="absolute w-full h-full object-cover">
+                        <div class="absolute top-4 right-4 bg-primary text-white text-sm font-bold px-3 py-1 rounded-full">
+                            民宿
+                        </div>
+                    </div>
+                    <div class="p-5">
+                        <div class="flex justify-between items-start mb-2">
+                            <h3 class="text-lg font-semibold text-dark">茶乡民宿</h3>
+                            <div class="text-secondary">
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star"></i>
+                                <i class="fa fa-star-half-o"></i>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 text-sm mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-2"></i>
+                            浉河区董家河镇
+                        </p>
+                        <p class="text-gray-600 text-sm mb-4">
+                            位于茶山之中，传统民居改造，环境优美，可体验采茶、制茶乐趣。
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold text-xl">¥260</span>
+                                <span class="text-gray-500 text-sm">/晚起</span>
+                            </div>
+                            <button class="bg-primary text-white px-4 py-2 rounded-lg text-sm hover:bg-primary/90 transition">
+                                查看详情
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 经济实惠选择 -->
+        <section class="mb-12">
+            <h2 class="text-[clamp(1.3rem,2vw,1.8rem)] font-bold text-dark mb-6 text-center">经济实惠选择</h2>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- 酒店3 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-48">
+                        <img src="img/15.png" alt="信阳快捷酒店" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-dark mb-1">城市快捷酒店</h3>
+                        <div class="text-secondary text-sm mb-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-1"></i>
+                            平桥区中心大道88号
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">¥168</span>
+                                <span class="text-gray-500 text-xs">/晚起</span>
+                            </div>
+                            <button class="bg-gray-100 text-primary px-3 py-1 rounded-lg text-xs hover:bg-gray-200 transition">
+                                预订
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 酒店4 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-48">
+                        <img src="img/16.png" alt="火车站宾馆" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-dark mb-1">火车站商务宾馆</h3>
+                        <div class="text-secondary text-sm mb-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-o"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-1"></i>
+                            浉河区火车站广场东侧
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">¥148</span>
+                                <span class="text-gray-500 text-xs">/晚起</span>
+                            </div>
+                            <button class="bg-gray-100 text-primary px-3 py-1 rounded-lg text-xs hover:bg-gray-200 transition">
+                                预订
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 民宿2 -->
+                <div class="bg-white rounded-lg shadow-md overflow-hidden card-hover">
+                    <div class="relative h-48">
+                        <img src="img/17.png" alt="乡村客栈" class="absolute w-full h-full object-cover">
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-semibold text-dark mb-1">鸡公山乡村客栈</h3>
+                        <div class="text-secondary text-sm mb-2">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star-half-o"></i>
+                        </div>
+                        <p class="text-gray-600 text-xs mb-3 flex items-center">
+                            <i class="fa fa-map-marker text-primary mr-1"></i>
+                            鸡公山风景区入口处
+                        </p>
+                        <div class="flex justify-between items-center">
+                            <div>
+                                <span class="text-primary font-bold">¥198</span>
+                                <span class="text-gray-500 text-xs">/晚起</span>
+                            </div>
+                            <button class="bg-gray-100 text-primary px-3 py-1 rounded-lg text-xs hover:bg-gray-200 transition">
+                                预订
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- 住宿小贴士 -->
+        <section>
+            <div class="bg-white rounded-lg shadow-md p-6">
+                <h3 class="text-lg font-semibold text-primary mb-4 flex items-center">
+                    <i class="fa fa-lightbulb-o mr-2"></i> 住宿小贴士
+                </h3>
+                <div class="grid md:grid-cols-2 gap-6">
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>旅游旺季（4-5月、9-10月）建议提前1-2周预订住宿</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>南湾湖、鸡公山等景区内住宿需提前预订，尤其是周末</span>
+                        </li>
+                    </ul>
+                    <ul class="space-y-2 text-gray-700">
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>市区住宿选择较多，交通便利，价格相对实惠</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fa fa-check-circle text-green-500 mt-1 mr-3"></i>
+                            <span>选择特色民宿可体验当地文化，建议查看住客评价后预订</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- 页脚 -->
+    <footer class="bg-dark text-white py-8 mt-12">
+        <div class="container mx-auto px-4 text-center">
+            <div class="flex justify-center items-center space-x-2 mb-4">
+                <i class="fa fa-map-marker text-primary text-2xl"></i>
+                <span class="text-xl font-bold">信阳旅游</span>
+            </div>
+            <p class="text-gray-400 mb-4 max-w-md mx-auto text-sm">
+                信阳，豫风楚韵，茶香四溢，一座来了就不想走的城市
+            </p>
+            <div class="flex justify-center space-x-4 mb-4">
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-weibo"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-wechat"></i></a>
+                <a href="#" class="text-gray-400 hover:text-primary"><i class="fa fa-instagram"></i></a>
+            </div>
+            <p class="text-gray-500 text-xs">&copy; 2023 信阳旅游网 版权所有</p>
+        </div>
+    </footer>
+
+    <script>
+        // 移动端菜单切换
+        document.getElementById('menuToggle').addEventListener('click', function() {
+            const mobileMenu = document.getElementById('mobileMenu');
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                navbar.classList.add('py-2', 'bg-white/95', 'backdrop-blur-sm');
+                navbar.classList.remove('py-3');
+            } else {
+                navbar.classList.add('py-3');
+                navbar.classList.remove('py-2', 'bg-white/95', 'backdrop-blur-sm');
+            }
+        });
+    </script>
+</body>
+</html>
+    
